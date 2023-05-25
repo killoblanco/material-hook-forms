@@ -7,7 +7,7 @@
   ],
   "main": "./dits/material-hook-forms.umd.cjs",
   "module": "./dist/material-hook-forms.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/main.d.ts",
   "exports": {
     ".": {
       "import": "./dist/material-hook-forms.js",
@@ -27,7 +27,8 @@
     "@emotion/styled": "11.11.0",
     "@mui/material": "5.13.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hook-form": "7.43.9"
   },
   "dependencies": {
     "@emotion/react": "11.11.0",

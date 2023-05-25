@@ -7,7 +7,9 @@ import dts from 'vite-plugin-dts'
 export default defineConfig({
   plugins: [
     react(),
-    dts(),
+    dts({
+      copyDtsFiles: true,
+    }),
   ],
   build: {
     lib: {
@@ -20,8 +22,10 @@ export default defineConfig({
         '@emotion/react',
         '@emotion/styled',
         '@mui/material',
-        'react', 
-        'react-dom'
+        'react',
+        'react/jsx-runtime',
+        'react-dom',
+        'react-hook-form'
       ],
       output: {
         globals: {
@@ -29,7 +33,9 @@ export default defineConfig({
           '@emotion/styled': 'Styled',
           '@mui/material': 'Mui',
           'react': 'React',
-          'react-dom': 'ReactDOM'
+          'react/jsx-runtime': 'JSXRuntime',
+          'react-dom': 'ReactDOM',
+          'react-hook-form': 'ReactHookForm'
         }
       }
     }
