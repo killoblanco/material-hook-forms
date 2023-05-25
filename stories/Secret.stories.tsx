@@ -1,14 +1,13 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Form } from '../lib/form';
-import { InputField } from '../lib/input';
-import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import { Stack } from '@mui/material';
+import { Form } from '../lib/form';
+import { SecretField } from '../lib/secret';
 
-const meta: Meta<typeof InputField> = {
-  title: 'Form Fields/Input Field',
-  component: InputField,
+const meta: Meta<typeof SecretField> = {
+  title: 'Form Fields/Secret Field',
+  component: SecretField,
   tags: ['autodocs'],
   argTypes: {
     color: {
@@ -76,19 +75,18 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    label: 'Input Field',
-    name: 'input',
+    label: 'Secret Field',
+    name: 'secret',
   },
   render: (props: any) => (
-    <Form><InputField {...props} /></Form>
+    <Form><SecretField {...props} /></Form>
   )
 }
 
 export const WithValidations: Story = {
-  render: (): JSX.Element => {
+  render: () => {
     const schema = yup.object({
-      firstName: yup.string().required(),
-      age: yup.number().positive().integer().required(),
+      password: yup.string().min(8).required(),
     }).required();
 
     return (
@@ -96,10 +94,7 @@ export const WithValidations: Story = {
         mode='onChange'
         resolver={yupResolver(schema)}
       >
-        <Stack spacing={2}>
-          <InputField name="firstName" label="First Name" required />
-          <InputField name="age" label="Age" type="number" />
-        </Stack>
+        <SecretField name="password" label="Pasword" required />
       </Form>
     )
   }
