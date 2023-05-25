@@ -34,9 +34,11 @@
     "@emotion/styled": "11.11.0",
     "@mui/material": "5.13.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hook-form": "7.43.9"
   },
   "devDependencies": {
+    "@hookform/resolvers": "3.1.0",
     "@storybook/addon-essentials": "7.0.17",
     "@storybook/addon-interactions": "7.0.17",
     "@storybook/addon-links": "7.0.17",
@@ -62,7 +64,8 @@
     "storybook": "7.0.17",
     "typescript": "5.0.4",
     "vite": "4.3.8",
-    "vite-plugin-dts": "2.3.0"
+    "vite-plugin-dts": "2.3.0",
+    "yup": "1.1.1"
   },
   "eslintConfig": {
     "extends": [

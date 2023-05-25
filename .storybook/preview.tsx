@@ -9,7 +9,7 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
-  },
+  }
 };
 
 export default preview;
