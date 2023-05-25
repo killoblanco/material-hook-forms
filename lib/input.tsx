@@ -9,7 +9,6 @@ export const InputField: React.FC<InputFieldProps> = ({
   const { register, formState: { errors } } = useFormContext()
 
   const hasError = (errors[name]?.message as string) ?? null
-  console.log(errors)
 
   return (
     <TextField
