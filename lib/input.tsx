@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material'
-import { type InputFieldProps } from './types'
 import { useFormContext } from 'react-hook-form'
+import { type InputFieldProps } from './types'
 
 export const InputField: React.FC<InputFieldProps> = ({
   name,

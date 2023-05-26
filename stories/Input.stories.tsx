@@ -1,10 +1,9 @@
-import { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
-import { Form } from '../lib/form';
-import { InputField } from '../lib/input';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from "yup";
-import { Stack } from '@mui/material';
+import { yupResolver } from '@hookform/resolvers/yup'
+import { Stack } from '@mui/material'
+import { type Meta, type StoryObj } from '@storybook/react'
+import * as yup from 'yup'
+import { Form } from '../lib/form'
+import { InputField } from '../lib/input'
 
 const meta: Meta<typeof InputField> = {
   title: 'Form Fields/Input Field',
@@ -15,7 +14,7 @@ const meta: Meta<typeof InputField> = {
       control: 'select',
       description: 'The color of the component. It supports both default and custom theme colors, which can be added as shown in the [palette customization guide.](https://mui.com/material-ui/customization/palette/#adding-new-colors)',
       defaultValue: 'primary',
-      options: ['primary', 'secondary', 'error', 'info', 'success', 'warning'],
+      options: ['primary', 'secondary', 'error', 'info', 'success', 'warning']
     },
     disabled: {
       control: 'boolean',
@@ -34,11 +33,11 @@ const meta: Meta<typeof InputField> = {
     },
     helperText: {
       control: 'text',
-      description: 'The helper text content.',
+      description: 'The helper text content.'
     },
     label: {
       control: 'text',
-      description: 'The label content.',
+      description: 'The label content.'
     },
     multiline: {
       control: 'boolean',
@@ -48,7 +47,7 @@ const meta: Meta<typeof InputField> = {
     name: { control: 'text' },
     placeholder: {
       control: 'text',
-      description: 'The short hint displayed in the `input` before the user enters a value.',
+      description: 'The short hint displayed in the `input` before the user enters a value.'
     },
     required: {
       control: 'boolean',
@@ -65,8 +64,8 @@ const meta: Meta<typeof InputField> = {
       control: 'select',
       description: 'The variant to use.',
       defaultValue: 'outlined',
-      options: ['outlined', 'standard', 'filled'],
-    },
+      options: ['outlined', 'standard', 'filled']
+    }
   }
 }
 
@@ -77,23 +76,23 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     label: 'Input Field',
-    name: 'input',
+    name: 'input'
   },
   render: (props: any) => (
     <Form><InputField {...props} /></Form>
   )
 }
 
-export const WithValidations: Story = {
-  render: (): JSX.Element => {
+export const Validations: Story = {
+  render: () => {
     const schema = yup.object({
       firstName: yup.string().required(),
-      age: yup.number().positive().integer().required(),
-    }).required();
+      age: yup.number().positive().integer().required()
+    }).required()
 
     return (
       <Form
-        mode='onChange'
+        mode="onChange"
         resolver={yupResolver(schema)}
       >
         <Stack spacing={2}>
@@ -103,4 +102,27 @@ export const WithValidations: Story = {
       </Form>
     )
   }
+}
+
+export const Multiline: Story = {
+  render: () => (
+    <Form>
+      <InputField
+        name="multiline"
+        label="Multiline"
+        multiline
+      />
+    </Form>
+  )
+}
+
+export const Sizes: Story = {
+  render: () => (
+    <Form>
+      <Stack direction="row" spacing={2}>
+        <InputField name="small" label="Small" size="small" />
+        <InputField name="medium" label="Medium" size="medium" />
+      </Stack>
+    </Form>
+  )
 }

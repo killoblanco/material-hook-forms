@@ -22,7 +22,8 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "lib"
+    "lib",
+    "stories"
   ],
   "references": [
     {

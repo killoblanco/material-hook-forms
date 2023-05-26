@@ -1,7 +1,7 @@
-import { type SecretFieldProps } from './types'
-import { InputField } from './input'
-import { useState } from 'react'
 import { IconButton } from '@mui/material'
+import { useState } from 'react'
+import { InputField } from './input'
+import { type SecretFieldProps } from './types'
 
 export const SecretField: React.FC<SecretFieldProps> = ({
   hiddenIcon,
@@ -10,7 +10,9 @@ export const SecretField: React.FC<SecretFieldProps> = ({
 }: SecretFieldProps) => {
   const [show, setShow] = useState(false)
 
-  const toggleShow = (): void => { setShow(!show) }
+  const toggleShow = (): void => {
+    setShow(!show)
+  }
 
   return (
     <InputField

@@ -1,9 +1,5 @@
-import {
-  type TextFieldProps,
-  type SwitchProps,
-  type FormControlLabelProps
-} from "@mui/material";
-import { type UseFormProps } from "react-hook-form";
+import { type FormControlLabelProps, type SwitchProps, type TextFieldProps } from '@mui/material'
+import { type UseFormProps } from 'react-hook-form'
 
 export type FormProps = React.PropsWithChildren<UseFormProps & {
   onSubmit?: (data: any) => void
